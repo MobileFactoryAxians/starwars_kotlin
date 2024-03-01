@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="110dp"
         android:layout_marginHorizontal="30dp"
         android:gravity="center_horizontal">
 
@@ -21,11 +21,11 @@
 
         <TextView
             style="@style/bigFont"
-            android:layout_width="224dp"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="50dp"
+            android:layout_marginVertical="40dp"
             android:text="@string/hometitle"
-            android:textAlignment="center"/>
+            android:textAlignment="center" />
 
         <Button
             android:id="@+id/btnPeople"
