@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -26,6 +27,11 @@ android {
             )
         }
     }
+
+    buildFeatures {
+        dataBinding = true
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -44,4 +50,27 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    //Retrofit
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("com.google.code.gson:gson:2.10.1")
+
+    implementation ("com.jakewharton.threetenabp:threetenabp:1.4.6")
+    implementation ("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+
+    //FastAdapter
+    val latestFastAdapterRelease = "5.7.0"
+    implementation ("com.mikepenz:fastadapter:${latestFastAdapterRelease}")
+    implementation ("com.mikepenz:fastadapter-extensions-expandable:${latestFastAdapterRelease}")
+    implementation ("com.mikepenz:fastadapter-extensions-binding:${latestFastAdapterRelease}") // diff util helpers
+    implementation ("com.mikepenz:fastadapter-extensions-diff:${latestFastAdapterRelease}") // diff util helpers
+    implementation ("com.mikepenz:fastadapter-extensions-drag:${latestFastAdapterRelease}") // drag support
+    implementation ("com.mikepenz:fastadapter-extensions-paged:${latestFastAdapterRelease}") // paging support
+    implementation ("com.mikepenz:fastadapter-extensions-scroll:${latestFastAdapterRelease}") // scroll helpers
+    implementation ("com.mikepenz:fastadapter-extensions-swipe:${latestFastAdapterRelease}") // swipe support
+    implementation ("com.mikepenz:fastadapter-extensions-ui:${latestFastAdapterRelease}") // pre-defined ui components
+    implementation ("com.mikepenz:fastadapter-extensions-utils:${latestFastAdapterRelease}") // needs the `expandable`, `drag` and `scroll` extension.
+
+    kapt ("com.android.databinding:compiler:3.1.4")
 }
