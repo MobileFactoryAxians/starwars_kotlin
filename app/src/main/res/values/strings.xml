@@ -32,5 +32,6 @@
     <string name="textBtnPeople">Characters</string>
     <string name="textBtnShip">Ships</string>
     <string name="textBtnPlanet">Planets</string>
+    <string name="peopleFragment">Characters</string>
 
 </resources>
