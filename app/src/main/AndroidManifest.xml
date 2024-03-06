@@ -16,14 +16,29 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Starwars"
         tools:targetApi="31">
+
         <activity
             android:name=".ui.home.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.people.PeopleActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.home.HomeActivity" />
+
+        <activity
+            android:name=".ui.ship.ShipActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.home.HomeActivity" />
+        <activity
+            android:name=".ui.planet.PlanetActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.home.HomeActivity" />
     </application>
 
 </manifest>

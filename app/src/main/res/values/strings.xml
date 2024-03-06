@@ -32,6 +32,11 @@
     <string name="textBtnPeople">Characters</string>
     <string name="textBtnShip">Ships</string>
     <string name="textBtnPlanet">Planets</string>
-    <string name="peopleFragment">Characters</string>
+    <string name="title_activity_people">PeopleActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
 
 </resources>
