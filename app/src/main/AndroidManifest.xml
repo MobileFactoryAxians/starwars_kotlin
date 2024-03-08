@@ -29,16 +29,15 @@
         <activity
             android:name=".ui.people.PeopleActivity"
             android:exported="false"
-            android:parentActivityName=".ui.home.HomeActivity" />
-
+            android:parentActivityName=".ui.home.HomeActivity"/>
         <activity
             android:name=".ui.ship.ShipActivity"
             android:exported="false"
-            android:parentActivityName=".ui.home.HomeActivity" />
+            android:parentActivityName=".ui.home.HomeActivity"/>
         <activity
             android:name=".ui.planet.PlanetActivity"
             android:exported="false"
-            android:parentActivityName=".ui.home.HomeActivity" />
+            android:parentActivityName=".ui.home.HomeActivity"/>
     </application>
 
 </manifest>
