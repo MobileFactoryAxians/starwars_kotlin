@@ -21,16 +21,16 @@ class PeopleActivity : AppCompatActivity() {
         _binding = ActivityPeopleBinding.inflate(layoutInflater)
         setContentView(_binding.root)
 
+        val fastAdapter = FastAdapter.with(mPeopleItemAdapter)
+
         val recyclerView: RecyclerView = _binding.peopleList
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = mPeopleItemAdapter
+        recyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        recyclerView.adapter = fastAdapter
 
         mPeopleItemAdapter.add(listOf(
             PeopleItem().apply { name = "Exemplo 1" },
             PeopleItem().apply { name = "Exemplo 2" },
             PeopleItem().apply { name = "Exemplo 3" }
         ))
-
-        Log.i("TAG", "--> Aqui")
     }
 }
