@@ -4,10 +4,11 @@ import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.starwars.R
+import com.example.starwars.data.people.objects.People
 import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.items.AbstractItem
 
-class PeopleItem: AbstractItem<PeopleItem.ViewHolder>() {
+class PeopleItem(): AbstractItem<PeopleItem.ViewHolder>() {
     var name: String? = null
 
     override val layoutRes: Int
