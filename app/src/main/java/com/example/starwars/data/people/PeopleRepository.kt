@@ -9,7 +9,7 @@ import com.example.starwars.data.people.remote.PeopleRemoteDataSource
 object PeopleRepository : IPeopleDataSource.Main{
     private var cachedPeopleResponse: PeopleListResponse? = null
 
-    override suspend fun getCachedMonster(monsterNAME: String): ResultWrapper<People?> {
+    override suspend fun getCachedPeople(peopleNAME: String): ResultWrapper<People?> {
         /*for (item in cachedPeopleResponse!!){
             if (item.name == monsterNAME){
                 return ResultWrapper(item, null)
@@ -19,7 +19,7 @@ object PeopleRepository : IPeopleDataSource.Main{
         return ResultWrapper(null, null)
     }
 
-    override suspend fun getPeople(): ResultWrapper<ResultListResponse> {
+    override suspend fun getPeople(): PeopleListResponse? {
         val result = PeopleRemoteDataSource.getPeople()
 
         result.result?.let {
@@ -27,6 +27,6 @@ object PeopleRepository : IPeopleDataSource.Main{
             cachedPeopleResponse = it.list
         }
 
-        return result
+        return cachedPeopleResponse
     }
 }

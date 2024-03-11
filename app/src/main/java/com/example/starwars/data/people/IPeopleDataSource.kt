@@ -25,7 +25,8 @@ interface IPeopleDataSource {
     }
 
     //interfaces specific to the main repository object. (cache operations, for example). Inherits both Remote and Local as those data sources are accessed by use cases via the repository.
-    interface Main : Remote, Local {
-        suspend fun getCachedMonster(monsterNAME: String) : ResultWrapper<People?>
+    interface Main {
+        suspend fun getCachedPeople(peopleNAME: String): ResultWrapper<People?>
+        suspend fun getPeople(): PeopleListResponse?
     }
 }

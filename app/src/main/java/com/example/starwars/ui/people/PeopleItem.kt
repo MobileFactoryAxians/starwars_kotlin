@@ -8,8 +8,7 @@ import com.example.starwars.data.people.objects.People
 import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.items.AbstractItem
 
-class PeopleItem(): AbstractItem<PeopleItem.ViewHolder>() {
-    var name: String? = null
+class PeopleItem(val people: People): AbstractItem<PeopleItem.ViewHolder>() {
 
     override val layoutRes: Int
         get() = R.layout.people_item
@@ -23,7 +22,7 @@ class PeopleItem(): AbstractItem<PeopleItem.ViewHolder>() {
     class ViewHolder(view: View): FastAdapter.ViewHolder<PeopleItem>(view) {
         var name: TextView = view.findViewById(R.id.peopleName)
         override fun bindView(item: PeopleItem, payloads: List<Any>) {
-            name.text = item.name
+            name.text = item.people.name
         }
 
         override fun unbindView(item: PeopleItem) {

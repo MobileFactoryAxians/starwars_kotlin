@@ -31,18 +31,19 @@ class PeopleActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         recyclerView.adapter = fastAdapter
 
-        mPeopleItemAdapter.add(listOf(
-            PeopleItem().apply { name = "Exemplo 1" },
-            PeopleItem().apply { name = "Exemplo 2" },
-            PeopleItem().apply { name = "Exemplo 3" }
-        ))
-
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         _binding.appbar.backButton.setOnClickListener { onBackPressed() }
 
         GlobalScope.launch(Dispatchers.IO) {
             try {
                 val result = PeopleRepository.getPeople()
+
+                result!!.forEach { people ->
+                    runOnUiThread {
+                        mPeopleItemAdapter.add(PeopleItem(people))
+                    }
+                }
+
                 Log.i("TAG", "--> Resposta API feita!")
             }
 
