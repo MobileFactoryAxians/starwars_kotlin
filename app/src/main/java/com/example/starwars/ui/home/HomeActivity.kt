@@ -5,19 +5,13 @@ import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
 import android.view.View
 import android.view.animation.AccelerateInterpolator
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.starwars.data.people.PeopleRepository
 import com.example.starwars.databinding.ActivityHomeBinding
 import com.example.starwars.ui.people.PeopleActivity
 import com.example.starwars.ui.planet.PlanetActivity
 import com.example.starwars.ui.ship.ShipActivity
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 class HomeActivity : AppCompatActivity() {
     final val SCALE_X = 157f/258f
@@ -38,17 +32,6 @@ class HomeActivity : AppCompatActivity() {
             },
             2000
         )
-
-        GlobalScope.launch(Dispatchers.IO) {
-            try {
-                val result = PeopleRepository.getPeople()
-                Log.i("TAG", "--> Resposta API feita!")
-            }
-
-            catch (e: Exception) {
-                Log.e("API_CALL", "--> $e")
-            }
-        }
 
         binding.btnPeople.setOnClickListener({
             //Toast.makeText(applicationContext, "People", Toast.LENGTH_SHORT).show()

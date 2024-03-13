@@ -3,7 +3,6 @@ package com.example.starwars.data.people
 import com.example.starwars.data.common.ResultWrapper
 import com.example.starwars.data.people.objects.People
 import com.example.starwars.data.people.objects.PeopleListResponse
-import com.example.starwars.data.people.objects.ResultListResponse
 import com.example.starwars.data.people.remote.PeopleRemoteDataSource
 
 object PeopleRepository : IPeopleDataSource.Main{

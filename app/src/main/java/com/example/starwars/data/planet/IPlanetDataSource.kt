@@ -1,11 +1,11 @@
-package com.example.starwars.data.people
+package com.example.starwars.data.Planet
 
 import com.example.starwars.data.common.ResultWrapper
-import com.example.starwars.data.people.objects.People
-import com.example.starwars.data.people.objects.PeopleListResponse
-import com.example.starwars.data.people.objects.ResultPeopleResponse
+import com.example.starwars.data.planet.objects.Planet
+import com.example.starwars.data.planet.objects.PlanetListResponse
+import com.example.starwars.data.planet.objects.ResultPlanetResponse
 
-interface IPeopleDataSource {
+interface IPlanetDataSource {
     //Interfaces required for all objects in this data source.
     interface Common {
 
@@ -13,7 +13,7 @@ interface IPeopleDataSource {
 
     //Interfaces specific to remote data source
     interface Remote : Common {
-        suspend fun getPeople() : ResultWrapper<ResultPeopleResponse>
+        suspend fun getPlanet() : ResultWrapper<ResultPlanetResponse>
         //suspend fun checkSession() : ResultWrapper<CheckSessionResponse>
     }
 
@@ -26,7 +26,7 @@ interface IPeopleDataSource {
 
     //interfaces specific to the main repository object. (cache operations, for example). Inherits both Remote and Local as those data sources are accessed by use cases via the repository.
     interface Main {
-        suspend fun getCachedPeople(peopleNAME: String): ResultWrapper<People?>
-        suspend fun getPeople(): PeopleListResponse?
+        suspend fun getCachedPlanet(PlanetNAME: String): ResultWrapper<Planet?>
+        suspend fun getPlanet(): PlanetListResponse?
     }
 }
