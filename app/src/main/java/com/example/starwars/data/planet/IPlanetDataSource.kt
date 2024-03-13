@@ -1,4 +1,4 @@
-package com.example.starwars.data.Planet
+package com.example.starwars.data.planet
 
 import com.example.starwars.data.common.ResultWrapper
 import com.example.starwars.data.planet.objects.Planet

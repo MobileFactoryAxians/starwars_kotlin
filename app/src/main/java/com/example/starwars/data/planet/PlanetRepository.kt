@@ -1,6 +1,5 @@
 package com.example.starwars.data.planet
 
-import com.example.starwars.data.Planet.IPlanetDataSource
 import com.example.starwars.data.common.ResultWrapper
 import com.example.starwars.data.planet.objects.Planet
 import com.example.starwars.data.planet.objects.PlanetListResponse

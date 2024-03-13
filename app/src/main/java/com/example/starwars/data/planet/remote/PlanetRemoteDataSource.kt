@@ -1,6 +1,6 @@
 package com.example.starwars.data.planet.remote
 
-import com.example.starwars.data.Planet.IPlanetDataSource
+import com.example.starwars.data.planet.IPlanetDataSource
 import com.example.starwars.data.common.HTTPClient
 import com.example.starwars.data.common.ResultWrapper
 import com.example.starwars.data.planet.objects.ResultPlanetResponse
