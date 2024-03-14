@@ -1,6 +1,7 @@
 package com.example.starwars.data.error
 
 import com.example.starwars.data.common.ResultWrapper
+import com.example.starwars.data.people.objects.PeopleListResponse
 import java.lang.ref.WeakReference
 
 abstract class CallbackWrapper<T>(view: IErrorCallback, resultWrapper: ResultWrapper<T>) {

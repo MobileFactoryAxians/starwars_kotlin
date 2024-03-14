@@ -1,5 +1,6 @@
 package com.example.starwars.data.people.remote
 
+import com.example.starwars.data.people.objects.People
 import com.example.starwars.data.people.objects.ResultPeopleResponse
 import retrofit2.http.GET
 
