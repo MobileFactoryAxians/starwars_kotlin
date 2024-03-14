@@ -1,5 +1,6 @@
 package com.example.starwars.ui.people
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.starwars.R
 import com.example.starwars.databinding.ActivityPeopleBinding
+import com.example.starwars.ui.people.details.PeopleDetailActivity
 import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.IAdapter
 import com.mikepenz.fastadapter.adapters.FastItemAdapter
@@ -40,6 +42,15 @@ class PeopleActivity : AppCompatActivity() {
         _binding.peopleList.apply {
             layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
             adapter = fastAdapter
+        }
+
+        //Details
+        fastAdapter.onClickListener = {
+                v: View?, adapter: IAdapter<PeopleItem>, item: PeopleItem, position: Int ->
+            val intent = Intent(this, PeopleDetailActivity::class.java)
+            intent.putExtra(PeopleDetailActivity.PEOPLE_NAME, item.people.name)
+            startActivity(intent)
+            false
         }
 
         //Change values in viewModel

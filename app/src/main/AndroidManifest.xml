@@ -17,9 +17,6 @@
         android:theme="@style/Theme.Starwars"
         tools:targetApi="31">
         <activity
-            android:name=".ui.people.details.PeopleDetailActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.home.HomeActivity"
             android:exported="true">
             <intent-filter>
@@ -38,6 +35,10 @@
             android:parentActivityName=".ui.home.HomeActivity" />
         <activity
             android:name=".ui.planet.PlanetActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.home.HomeActivity" />
+        <activity
+            android:name=".ui.people.details.PeopleDetailActivity"
             android:exported="false"
             android:parentActivityName=".ui.home.HomeActivity" />
     </application>

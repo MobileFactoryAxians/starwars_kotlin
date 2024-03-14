@@ -8,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.starwars.ui.people.PeopleViewModel"
+            type="com.example.starwars.ui.people.details.PeopleDetailViewModel"
             />
     </data>
 
@@ -51,7 +51,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".5"
                     android:textAlignment="textStart"
-                    android:text="born"/>
+                    android:text="@{viewModel.bio_born}"/>
 
             </LinearLayout>
 
@@ -81,7 +81,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".5"
                     android:textAlignment="textStart"
-                    android:text="species"/>
+                    android:text="@{viewModel.bio_species}"/>
 
             </LinearLayout>
 
@@ -104,30 +104,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".5"
                     android:textAlignment="textStart"
-                    android:text="gender"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight=".5"
-                    android:text="@string/detail_pron"
-                    android:textAlignment="textEnd"
-                    android:layout_marginEnd="20dp"/>
-
-                <TextView
-                    android:id="@+id/bio_pron"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight=".5"
-                    android:textAlignment="textStart"
-                    android:text="Pronouns"/>
+                    android:text="@{viewModel.bio_gender}"/>
 
             </LinearLayout>
 
@@ -150,7 +127,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".5"
                     android:textAlignment="textStart"
-                    android:text="height"/>
+                    android:text="@{viewModel.bio_height}"/>
 
             </LinearLayout>
 
@@ -173,7 +150,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".5"
                     android:textAlignment="textStart"
-                    android:text="mass"/>
+                    android:text="@{viewModel.bio_mass}"/>
 
             </LinearLayout>
 
@@ -203,7 +180,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".5"
                     android:textAlignment="textStart"
-                    android:text="homeworld"/>
+                    android:text="@{viewModel.bio_homeworld}"/>
 
             </LinearLayout>
 

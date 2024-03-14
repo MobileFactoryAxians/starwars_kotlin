@@ -10,11 +10,12 @@ object PeopleRepository : IPeopleDataSource.Main{
     private var cachedPeopleResponse: List<People>? = null
 
     override suspend fun getCachedPeople(peopleNAME: String): ResultWrapper<People?> {
-        /*for (item in cachedPeopleResponse!!){
-            if (item.name == monsterNAME){
+        cachedPeopleResponse?.forEach {
+                item ->
+            if (item.name == peopleNAME) {
                 return ResultWrapper(item, null)
             }
-        }*/
+        }
 
         return ResultWrapper(null, null)
     }
