@@ -2,6 +2,7 @@ package com.example.starwars.ui.people
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.starwars.R
 import com.example.starwars.databinding.ActivityPeopleBinding
 import com.mikepenz.fastadapter.FastAdapter
+import com.mikepenz.fastadapter.IAdapter
 import com.mikepenz.fastadapter.adapters.FastItemAdapter
 
 class PeopleActivity : AppCompatActivity() {
