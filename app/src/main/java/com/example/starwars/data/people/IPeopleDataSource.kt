@@ -1,6 +1,7 @@
 package com.example.starwars.data.people
 
 import com.example.starwars.data.common.ResultWrapper
+import com.example.starwars.data.people.objects.HomeworldListResponse
 import com.example.starwars.data.people.objects.People
 import com.example.starwars.data.people.objects.PeopleListResponse
 import com.example.starwars.data.people.objects.SpecieListResponse
@@ -24,5 +25,6 @@ interface IPeopleDataSource {
     interface Main: Remote, Local {
         suspend fun getCachedPeople(peopleNAME: String): ResultWrapper<People?>
         suspend fun getSpecie(speciesURL: String): ResultWrapper<SpecieListResponse>
+        suspend fun getHomeworld(homeworldURL: String): ResultWrapper<HomeworldListResponse>
     }
 }

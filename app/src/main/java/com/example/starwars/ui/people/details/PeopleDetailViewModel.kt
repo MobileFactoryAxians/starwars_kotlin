@@ -37,9 +37,9 @@ class PeopleDetailViewModel(application: Application): BaseViewModel(application
                             bio_gender.value = data.gender
                             bio_height.value = data.height
                             bio_mass.value = data.mass
-                            bio_homeworld.value = data.homeworld
 
                             getSpeciesDetail(data.species.get(0))
+                            getHomeworldDetail(data.homeworld)
 
                             isLoading.value = false
                         }
@@ -54,6 +54,14 @@ class PeopleDetailViewModel(application: Application): BaseViewModel(application
         viewModelScope.launch {
             val speciesResponse = PeopleRepository.getSpecie(speciesURL)
             bio_species.value = (speciesResponse.result)?.name
+            isLoading.value = false
+        }
+    }
+
+    private fun getHomeworldDetail(homeworldURL: String) {
+        viewModelScope.launch {
+            val homeworldResponse = PeopleRepository.getHomeworld(homeworldURL)
+            bio_homeworld.value = (homeworldResponse.result)?.name
             isLoading.value = false
         }
     }

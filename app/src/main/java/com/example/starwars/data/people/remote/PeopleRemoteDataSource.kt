@@ -3,6 +3,7 @@ package com.example.starwars.data.people.remote
 import com.example.starwars.data.common.HTTPClient
 import com.example.starwars.data.common.ResultWrapper
 import com.example.starwars.data.people.IPeopleDataSource
+import com.example.starwars.data.people.objects.HomeworldListResponse
 import com.example.starwars.data.people.objects.People
 import com.example.starwars.data.people.objects.PeopleListResponse
 import com.example.starwars.data.people.objects.SpecieListResponse
@@ -13,6 +14,7 @@ object PeopleRemoteDataSource : IPeopleDataSource.Main {
 
     private val peopleAPI = HTTPClient(PeopleAPI::class.java).get()
     private val specieAPI = HTTPClient(SpecieAPI::class.java).get()
+    private val homeworldAPI = HTTPClient(HomeworldAPI::class.java).get()
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO
     override suspend fun getCachedPeople(peopleNAME: String): ResultWrapper<People?> {
         TODO("Not yet implemented")
@@ -21,6 +23,12 @@ object PeopleRemoteDataSource : IPeopleDataSource.Main {
     override suspend fun getSpecie(speciesURL: String): ResultWrapper<SpecieListResponse> {
         return ResultWrapper.safeApiCall(dispatcher) {
             specieAPI.getSpecie(speciesURL.substringAfter("species/"))
+        }
+    }
+
+    override suspend fun getHomeworld(homeworldURL: String): ResultWrapper<HomeworldListResponse> {
+        return ResultWrapper.safeApiCall(dispatcher) {
+            homeworldAPI.getHomeworld(homeworldURL.substringAfter("planets/"))
         }
     }
 
