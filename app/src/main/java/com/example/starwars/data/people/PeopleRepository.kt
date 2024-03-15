@@ -1,9 +1,11 @@
 package com.example.starwars.data.people
 
+import android.util.Log
 import com.example.starwars.data.common.ResultWrapper
 import com.example.starwars.data.people.objects.People
 import com.example.starwars.data.people.objects.PeopleListResponse
-import com.example.starwars.data.people.objects.ResultPeopleResponse
+import com.example.starwars.data.people.objects.Specie
+import com.example.starwars.data.people.objects.SpecieListResponse
 import com.example.starwars.data.people.remote.PeopleRemoteDataSource
 
 object PeopleRepository : IPeopleDataSource.Main{
@@ -18,6 +20,10 @@ object PeopleRepository : IPeopleDataSource.Main{
         }
 
         return ResultWrapper(null, null)
+    }
+
+    override suspend fun getSpecie(speciesURL: String): ResultWrapper<SpecieListResponse> {
+        return PeopleRemoteDataSource.getSpecie(speciesURL)
     }
 
     override suspend fun getPeople(): ResultWrapper<PeopleListResponse> {

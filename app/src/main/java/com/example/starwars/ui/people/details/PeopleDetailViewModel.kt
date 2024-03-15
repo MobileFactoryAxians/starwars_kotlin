@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.starwars.data.error.CallbackWrapper
 import com.example.starwars.data.people.PeopleRepository
 import com.example.starwars.data.people.objects.People
+import com.example.starwars.data.people.objects.Specie
 import com.example.starwars.ui.common.BaseViewModel
 import kotlinx.coroutines.launch
 
@@ -19,8 +20,10 @@ class PeopleDetailViewModel(application: Application): BaseViewModel(application
     var bio_height = MutableLiveData<String>().apply { value = "height" }
     var bio_mass = MutableLiveData<String>().apply { value = "mass" }
     var bio_homeworld = MutableLiveData<String>().apply { value = "homeworld" }
+    var bio_title = MutableLiveData<String>().apply { value = "Title" }
 
     private fun getPeopleDetail(peopleNAME: String) {
+        var species: List<Specie>
         isLoading.value = true
 
         viewModelScope.launch {
@@ -29,20 +32,29 @@ class PeopleDetailViewModel(application: Application): BaseViewModel(application
                 object: CallbackWrapper<People?>(this@PeopleDetailViewModel, peopleResponse) {
                     override fun onSuccess(data: People?) {
                         if (data != null) {
+                            bio_title.value = data.name
                             bio_born.value = data.birthYear
-                            bio_species.value = " - " + data.species
                             bio_gender.value = data.gender
                             bio_height.value = data.height
                             bio_mass.value = data.mass
                             bio_homeworld.value = data.homeworld
+
+                            getSpeciesDetail(data.species.get(0))
 
                             isLoading.value = false
                         }
 
                         Log.i("TAG", "--> Resposta da API")
                     }
-
                 }
+        }
+    }
+
+    private fun getSpeciesDetail(speciesURL: String) {
+        viewModelScope.launch {
+            val speciesResponse = PeopleRepository.getSpecie(speciesURL)
+            bio_species.value = (speciesResponse.result)?.name
+            isLoading.value = false
         }
     }
 

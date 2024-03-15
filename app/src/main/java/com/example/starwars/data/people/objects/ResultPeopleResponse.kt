@@ -1,5 +1,6 @@
 package com.example.starwars.data.people.objects
 
+import com.example.starwars.data.people.objects.PeopleListResponse
 import com.google.gson.annotations.SerializedName
 
 data class ResultPeopleResponse(
